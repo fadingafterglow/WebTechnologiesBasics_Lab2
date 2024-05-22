@@ -2,15 +2,75 @@
 <html>
 <head lang="uk">
     <meta charset="UTF-8">
-    <title>My Page</title>
-
-
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
     <link rel="stylesheet" type="text/css" href="main.css" />
+    <title>Buy list</title>
 </head>
 <body>
-	<span class="product-item">
-		Apple
-		<span class="amount">4</span>
-	</span>
+	<article class="cart">
+		<section class="product-list-section">
+			<section class="add-product-section">
+				<input type="text" placeholder="Назва товару" class="add-product-bar" />
+				<button class="add-product-button">Додати</button>
+			</section>
+			<section class="product-section bought-item">
+				<span class="product-name">Помідори</span>
+				<section class="product-amount-section">
+					<span class="product-amount">2</span>
+				</section>
+				<section class="product-buttons-section">
+					<button class="product-state-button">Не куплено</button>
+				</section>
+			</section>
+			<section class="product-section">
+				<input type="text" class="product-name" value="Печиво">
+				<section class="product-amount-section">
+					<button class="decrease-product-button">–</button>
+					<span class="product-amount">2</span>
+					<button class="increase-product-button">+</button>
+				</section>
+				<section class="product-buttons-section">
+					<button class="product-state-button">Куплено</button>
+					<button class="delete-product-button">×</button>
+				</section>
+			</section>
+			<section class="product-section">
+				<input type="text" class="product-name" value="Сир">
+				<section class="product-amount-section">
+					<button class="decrease-product-button" disabled="true">–</button>
+					<span class="product-amount">1</span>
+					<button class="increase-product-button">+</button>
+				</section>
+				<section class="product-buttons-section">
+					<button class="product-state-button">Куплено</button>
+					<button class="delete-product-button">×</button>
+				</section>
+			</section>
+		</section>
+		<aside class="statistics-section">
+			<section class="remaining-statistics">
+				<header>Залишилося</header>
+				<div class="statistic-items">
+					<section class="statistic-item">
+						<span class="product-name">Печиво</span>
+						<span class="product-amount">2</span>
+					</section>
+					<section class="statistic-item">
+						<span class="product-name">Сир</span>
+						<span class="product-amount">1</span>
+					</section>
+				</div>
+			</section>
+			<section class="bought-statistics">
+				<header>Куплено</header>
+				<div class="statistic-items">
+					<section class="statistic-item bought-item">
+						<span class="product-name">Помідори</span>
+						<span class="product-amount">2</span>
+					</section>
+				</div>
+			</section>
+		</aside>
+	</article>
 </body>
 </html>
