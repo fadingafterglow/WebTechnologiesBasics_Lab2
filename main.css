@@ -5,6 +5,7 @@
 	--additional-text-color: white;
 	--primary-background-color: white;
 	--additional-background-color: #DADADA;
+	--tooltip-background-color: #AF00DA;
 	--focus-outline-color: #93C8F1;
 	--size-change-duration: 0.15s;
 }
@@ -252,9 +253,9 @@ input.product-name:focus{
 	padding: calc(var(--primary-font-size)*0.5);
 	color: var(--additional-text-color);
 	font-family: var(--primary-font);
-	border: 1px solid #AF00DA;
+	border: 1px solid var(--tooltip-background-color);
 	border-radius: 7px 7px 0px 0px;
-	background-color: #AF00DA;
+	background-color: var(--tooltip-background-color);
 	transition: all ease-in-out 0.5s;
 }
 .badge:hover {
@@ -274,6 +275,36 @@ input.product-name:focus{
 }
 .author {
 	font-weight: bold;
+}
+[data-tooltip] {
+	position: relative;
+}
+[data-tooltip]:not([disabled="true"]):hover {
+	z-index: 1;
+}
+[data-tooltip]:not([disabled="true"])::after {
+	content: attr(data-tooltip);
+	position: absolute;
+	z-index: 1;
+	bottom: 102.5%;
+	left: 50%;
+	transform: translateX(-50%);
+	height: 0;
+	padding: 0;
+	font-size: 0;
+	font-weight: normal;
+	white-space: nowrap;
+	color: var(--additional-text-color);
+	border-radius: 7px;
+	background-color: var(--tooltip-background-color);;
+	opacity: 0;
+	transition: all ease-in-out 0.5s 0.1s, transform 0s;
+}
+[data-tooltip]:not([disabled="true"]):hover::after{
+	opacity: 1;
+	height: calc(var(--primary-font-size)*0.8);
+	padding: calc(var(--primary-font-size)*0.4);
+	font-size: calc(var(--primary-font-size)*0.8);
 }
 @media print {
 	.badge {
@@ -335,6 +366,9 @@ input.product-name:focus{
 	}
 }
 @media (max-width: 500px) {
+	:root {
+		--primary-font-size: 0.75rem;
+	}
 	.cart {
 		flex-wrap: wrap;
 	}
@@ -352,6 +386,12 @@ input.product-name:focus{
 	}
 	.statistic-item {
 		padding: 1% 1.5%;
+	}
+	.product-buttons-section .delete-product-button::after {
+		transform: translateX(-75%);
+	}
+	.add-product-section .add-product-button::after {
+		bottom: 90%;
 	}
 }
 @media (max-width: 350px) {
