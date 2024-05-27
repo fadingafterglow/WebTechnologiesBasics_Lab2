@@ -46,7 +46,7 @@
 .product-list-section button:focus-visible{
 	outline: 2px solid var(--focus-outline-color);
 }
-.add-product-section {
+.add-product-form {
 	display: flex;
 	justify-content: center;
 	align-items: start;
@@ -98,6 +98,7 @@
 	padding: 0%;
 	margin: 0%;
 	border: none;
+	word-break: break-all;
 	outline-color: var(--focus-outline-color);
 	transition: all ease-in-out var(--size-change-duration);
 }
@@ -121,14 +122,13 @@ input.product-name:focus{
 	min-height: 40px;
 	margin-left: 1%;
 	margin-right: 1%;
-	transition: all ease-in-out var(--size-change-duration), box-shadow 0s, transform 0s;
+	transition: all ease-in-out var(--size-change-duration), box-shadow 0s, transform 0s, color 0s, background-color 0s;
 }
 .product-amount {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	box-sizing: border-box;
-	padding: 2%;
 	color: var(--primary-text-color);
 }
 .product-amount-section .product-amount {
@@ -221,13 +221,16 @@ input.product-name:focus{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	max-width: 93%;
 	margin: 0.5%;
 	padding: 2% 3%;
+	overflow: hidden;
 	font-size: calc(var(--primary-font-size)/1.15);
 	background-color: #E8E8E8;
 	border-radius: 5px;
 }
 .statistic-item .product-name {
+	max-width: calc(97% - 24px);
 	margin-right: 3%;
 	color: var(--primary-text-color);
 	font-weight: bold;
@@ -323,7 +326,6 @@ input.product-name:focus{
 	.add-product-bar {
 		height: 20px;
 		padding: 4px 1.5%;
-
 	}
 	.add-product-button{
 		height: 25px;
@@ -356,6 +358,9 @@ input.product-name:focus{
 	.delete-product-button {
 		min-width: 27px;
 		box-shadow: 0px 2.5px 1px 0px #BF2728;
+	}
+	.statistic-item .product-name {
+		max-width: calc(97% - 20px);
 	}
 	.statistic-item .product-amount {
 		min-width: 20px;
@@ -390,8 +395,11 @@ input.product-name:focus{
 	.product-buttons-section .delete-product-button::after {
 		transform: translateX(-75%);
 	}
-	.add-product-section .add-product-button::after {
+	.add-product-form .add-product-button::after {
 		bottom: 90%;
+	}
+	.statistic-item {
+		max-width: 96%;
 	}
 }
 @media (max-width: 350px) {
@@ -433,6 +441,9 @@ input.product-name:focus{
 	.delete-product-button {
 		min-width: 20px;
 		box-shadow: 0px 1.5px 1px 0px #BF2728;
+	}
+	.statistic-item .product-name {
+		max-width: calc(97% - 15px);
 	}
 	.statistic-item .product-amount {
 		min-width: 15px;
